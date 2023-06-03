@@ -1,0 +1,25 @@
+.search {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20rem; 
+    height: 2.5rem;
+    border: 2px solid blue; 
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+}
+#searchBar {
+    flex-grow: 1; 
+    border: none; 
+    outline: none;
+    font-size: 1.2rem;
+}
+#searchImage {
+    height: 2rem;
+    width: 2rem;
+    cursor: pointer;
+    margin-left: 0.5rem;
+}
