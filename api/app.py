@@ -12,6 +12,3 @@ def generate():
     player_name = request_data.get("playerName")
     
     return player_name
-
-if __name__ == "__main__":
-    app.run(port=8080)

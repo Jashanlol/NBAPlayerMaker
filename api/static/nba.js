@@ -33,7 +33,7 @@ function sendRequest(_playerName) {
         body: JSON.stringify({playerName: _playerName})
     };
 
-    fetch('http://localhost:8080/generate', requestOptions)
+    fetch('http://localhost:3000/generate', requestOptions)
         .then(response => response.text())
         .then(data => {
             postPlayer(data);
