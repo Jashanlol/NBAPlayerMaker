@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>NBA Player Maker</title>
+    <link rel="icon" type="image/png" href="../static/favicon.ico">
     <link rel="stylesheet" href="../static/nba.css">
-    <script src="../static/nba.js" async defer></script>
   </head>
   <body>
-    <header>
-      <title>NBA Player Maker</title>
-    </header>
-    <div class="search">   
-        <input type="text" placeholder="NBA Player Name" id="searchBar">
-        <img src="../static/search.png" id="searchImage">
-    </div>
+    <form action="/myplayer" method="post"">
+      <input type="text" placeholder="NBA Player Name" name="playerName" autocomplete="off" id="textBox">
+      <input type="submit" value="Create Player" id="submitText">
+    </form>
   </body>
 </html>

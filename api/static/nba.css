@@ -1,25 +1,22 @@
-.search {
-    position: absolute;
-    top: 20%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 20rem; 
-    height: 2.5rem;
-    border: 2px solid blue; 
-    border-radius: 0.5rem;
+form {
     display: flex;
-    align-items: center;
-    padding: 0.5rem;
+    flex-direction: column;
+    width: 15%;
+    margin: 0 auto;
+    padding: 10px;
+    background-color: #fff;
 }
-#searchBar {
-    flex-grow: 1; 
-    border: none; 
-    outline: none;
-    font-size: 1.2rem;
+
+#textBox {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ccc;
 }
-#searchImage {
-    height: 2rem;
-    width: 2rem;
+  
+#submitText {
+    padding: 10px;
+    background-color: blue;
+    color: #fff;
+    border: none;
     cursor: pointer;
-    margin-left: 0.5rem;
 }
