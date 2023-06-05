@@ -33,7 +33,7 @@ function sendRequest(_playerName) {
         body: JSON.stringify({playerName: _playerName})
     };
 
-    fetch('http://localhost:3000/generate', requestOptions)
+    fetch('https://nba-player-maker.vercel.app/generate', requestOptions)
         .then(response => response.text())
         .then(data => {
             postPlayer(data);
