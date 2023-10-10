@@ -7,6 +7,13 @@ PLAYOFF_RESULT_SET_NAME = "CareerTotalsPostSeason"
 IMPORTANT_STAT_HEADERS = set(['REB', 'AST', 'STL', 'BLK', 'PTS'])
 
 
+def get_player_by_name(player_name: str) -> str:
+    '''
+    This function takes a player's full name and 
+    returns the players ID (as a string).
+    '''
+    matching_players = players.find_players_by_full_name(player_name)
+    return str(matching_players[0].get('id'))
 
 
 def get_important_stats(player_id: str) -> dict:
@@ -16,6 +23,13 @@ def get_important_stats(player_id: str) -> dict:
 
     note: the dictionary contains stats PER GAME, not totals
     '''
+
+    # if player_id is already an ID don't do anything
+    # otherwise look up the player and find their ID
+    try: 
+        int(player_id)
+    except ValueError:
+        player_id = get_player_by_name(player_id)
 
     # api call
     all_stats = playercareerstats.PlayerCareerStats(player_id=player_id).get_dict()
@@ -49,11 +63,11 @@ def get_important_stats(player_id: str) -> dict:
     
 
 
-# here, we try to get all the players' important stats
-# TODO: this is failing because the API calls are timing out
-all_player_stats = dict()
-for player in players.get_active_players():
-    all_player_stats[player['id']] = get_important_stats(player['id'])
+# # here, we try to get all the players' important stats
+# # TODO: this is failing because the API calls are timing out
+# all_player_stats = dict()
+# for player in players.get_active_players():
+#     all_player_stats[player['id']] = get_important_stats(player['id'])
 
 
 
@@ -95,6 +109,6 @@ def get_nearby_players(player_id: str) -> dict:
 
 
 if __name__ == '__main__':
-    c = get_nearby_players('203076')
+    c = get_important_stats('Lebron James')
     print(c)
 
