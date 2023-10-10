@@ -11,9 +11,7 @@ def serveHTML():
 @app.route("/myplayer", methods=['POST'])
 def generate():
     player_name = request.form["playerName"]
-    print("going in")
     stats = get_important_stats(player_name)
-    print("got stats")
     if not stats:
         return f"ERROR: Player {player_name.title()} was not found!"
     format_stats = '<br/>'.join([f"&emsp;{key}: {round(value, 1)}" for [key, value] in stats.items()])
