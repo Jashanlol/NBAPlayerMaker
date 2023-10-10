@@ -13,7 +13,7 @@ def get_player_by_name(player_name: str) -> str:
     returns the players ID (as a string).
     '''
     matching_players = players.find_players_by_full_name(player_name)
-    return str(matching_players[0].get('id'))
+    return None or str(matching_players[0].get('id'))
 
 
 def get_important_stats(player_id: str) -> dict:
@@ -30,6 +30,9 @@ def get_important_stats(player_id: str) -> dict:
         int(player_id)
     except ValueError:
         player_id = get_player_by_name(player_id)
+
+    if not player_id: 
+        return 
 
     # api call
     all_stats = playercareerstats.PlayerCareerStats(player_id=player_id).get_dict()
@@ -104,9 +107,6 @@ def get_nearby_players(player_id: str) -> dict:
                 closest_players[stat] = player['full_name']
     
     return closest_players
-
-    
-
 
 if __name__ == '__main__':
     c = get_important_stats('Lebron James')
