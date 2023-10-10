@@ -13,6 +13,6 @@ def generate():
     player_name = request.form["playerName"]
     stats = get_important_stats(player_name)
     if not stats:
-        return f"ERROR: player {player_name} was not found!"
+        return f"ERROR: Player {player_name.title()} was not found!"
     format_stats = '<br/>'.join([f"&emsp;{key}: {round(value, 1)}" for [key, value] in stats.items()])
     return f"<h2>Stats for {player_name.title()}</h2><p>{format_stats}</p>"

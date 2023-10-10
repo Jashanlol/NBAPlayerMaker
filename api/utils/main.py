@@ -13,7 +13,12 @@ def get_player_by_name(player_name: str) -> str:
     returns the players ID (as a string).
     '''
     matching_players = players.find_players_by_full_name(player_name)
-    return None or str(matching_players[0].get('id'))
+    try:
+        player_id = str(matching_players[0].get('id'))
+    except IndexError:
+        return None
+    else:
+        return player_id
 
 
 def get_important_stats(player_id: str) -> dict:
